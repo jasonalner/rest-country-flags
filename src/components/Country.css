@@ -1,0 +1,14 @@
+.country-container {
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    justify-content: space-evenly;
+}
+
+.country-img img  {
+    width:100%;
+}
+
+.country-info {
+    display:flex;
+}

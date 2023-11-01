@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import './Country.css'
 
 const Country = () => {
   const { id } = useParams(); // Get the country ID from the URL
@@ -35,6 +36,7 @@ const Country = () => {
       </div>
       <div className="country-info">
         <h1>{country.name.common}</h1>
+        <div className="left">
         <p>
           <strong>Native Name:</strong> 
         </p>
@@ -47,6 +49,10 @@ const Country = () => {
         <p>
           <strong>Capital:</strong> {country.capital}
         </p>
+        </div>
+       <div className="right">
+
+       </div>
         <p>
           <strong>Languages:</strong> {country.langauges}
         </p>
