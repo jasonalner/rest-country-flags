@@ -1,0 +1,15 @@
+.filter-container {
+  width:100%;
+  display: flex;
+  justify-content: flex-end;  
+}
+
+
+select {
+  margin: 2rem 0;
+  padding: 13px;
+  width:30%;
+  border: none;
+  box-shadow: 0 0 8px 4px rgba(100, 100, 100, 0.1);
+  outline: rgba(202, 51, 199, 0.3);
+}

@@ -1,0 +1,15 @@
+header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--dark-blue);
+}
+
+.mode-toggle {
+    position: absolute;
+    right: 0;
+}
+
+.mode-toggle.light {
+    display:none;
+}
