@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import './Country.css'
+import "./Country.css";
 
 const Country = () => {
   const { id } = useParams(); // Get the country ID from the URL
@@ -18,6 +18,7 @@ const Country = () => {
         }
         const countryData = await response.json();
         setCountry(countryData[0]);
+        console.log(countryData)
       } catch (error) {
         console.log("Error:", error);
       }
@@ -36,26 +37,31 @@ const Country = () => {
       </div>
       <div className="country-info">
         <h1>{country.name.common}</h1>
-        <div className="left">
-        <p>
-          <strong>Native Name:</strong> 
+        <div className="country-more-info">
+          <div className="left">
+            <p>
+              <strong>Native Name:</strong>
+            </p>
+            <p>
+              <strong>Population:</strong> {country.population.toLocaleString()}
+            </p>
+            <p>
+              <strong>Region:</strong> {country.region}
+            </p>
+            <p>
+              <strong>Capital:</strong> {country.capital}
+            </p>
+          </div>
+          <div className="right">
+          <p>
+          <strong>Languages:</strong> {Object.values(country.languages).join(", ")}
         </p>
-        <p>
-          <strong>Population:</strong> {country.population.toLocaleString()}
-        </p>
-        <p>
-          <strong>Region:</strong> {country.region}
-        </p>
-        <p>
-          <strong>Capital:</strong> {country.capital}
-        </p>
-        </div>
-       <div className="right">
 
-       </div>
-        <p>
-          <strong>Languages:</strong> {country.langauges}
-        </p>
+
+          </div>
+        </div>
+
+   
         {/* Add more country details here */}
       </div>
     </div>

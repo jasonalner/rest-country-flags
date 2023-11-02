@@ -21,17 +21,19 @@ function Results() {
         }
         const countriesData = await response.json();
         setCountries(countriesData);
+        console.log(countriesData)
       } catch (error) {
         console.log("Error:", error);
       }
     }
     getCountries();
-  }, []);
 
+  }, []);
+  
   const handleSearchChange = (value) => {
     setSearch(value);
   };
-
+  
   const [selectedRegion, setSelectedRegion] = useState("");
 
   const handleRegionChange = (region) => {
