@@ -1,5 +1,5 @@
 import { ICountry } from "../types";
-import "./Card.css";
+import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -8,21 +8,21 @@ interface Props {
 
 function Card({ country }: Readonly<Props>) {
   return (
-    <div className="card">
+    <div className={styles.card}>
       <Link to={`/country/${country.name.common}`}>
-        <div className="top">
-          <img className="country-flag" src={country.flags.png} alt="" />
+        <div className={styles.card_top}>
+          <img className={styles.card_country_flag} src={country.flags.png} alt="" />
         </div>
       </Link>
-      <div className="bottom">
-        <h2 className="country-name">{country.name.common}</h2>
-        <p className="country-pop">
+      <div className={styles.card_bottom}>
+        <h2>{country.name.common}</h2>
+        <p>
           <strong>Population:</strong> {country.population.toLocaleString()}
         </p>
-        <p className="country-region">
+        <p>
           <strong>Region:</strong> {country.region}
         </p>
-        <p className="country-capital">
+        <p>
           <strong>Capital:</strong> {country.capital}
         </p>
       </div>
