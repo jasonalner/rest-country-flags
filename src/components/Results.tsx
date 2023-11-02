@@ -4,12 +4,12 @@ import Card from "./Card";
 import "./Results.css";
 
 import { Filter } from "./Filter";
+import { ICountry } from "../types";
 
-const url =
-  "https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital,tld,languages";
+const url = "https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital,tld,languages";
 
 function Results() {
-  const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState<ICountry[]>([]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -28,35 +28,27 @@ function Results() {
     getCountries();
   }, []);
 
-  const handleSearchChange = (value) => {
+  const handleSearchChange = (value: string) => {
     setSearch(value);
   };
 
   const [selectedRegion, setSelectedRegion] = useState("");
 
-  const handleRegionChange = (region) => {
+  const handleRegionChange = (region: string) => {
     setSelectedRegion(region);
   };
 
-  const filteredCountries = countries.filter(
-    (country) =>
-      country.name.common.toLowerCase().includes(search.toLowerCase()) &&
-      (selectedRegion === "" ||
-        country.region.toLowerCase() === selectedRegion.toLowerCase())
-  );
+  const filteredCountries = countries.filter((country) => country.name.common.toLowerCase().includes(search.toLowerCase()) && (selectedRegion === "" || country.region.toLowerCase() === selectedRegion.toLowerCase()));
 
   return (
     <main>
       <div className="searchFilterContainer">
         <Search search={search} onSearchChange={handleSearchChange} />
-        <Filter
-          selectedRegion={selectedRegion}
-          onRegionChange={handleRegionChange}
-        ></Filter>
+        <Filter selectedRegion={selectedRegion} onRegionChange={handleRegionChange}></Filter>
       </div>
       <div className="results">
         {filteredCountries.map((country, index) => (
-          <Card key={index} country={country} />
+          <Card key={`country-${index * 1}`} country={country} />
         ))}
       </div>
     </main>
