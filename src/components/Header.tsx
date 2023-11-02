@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaRegMoon, FaSun } from 'react-icons/fa';
+import { FaRegMoon, FaSun } from "react-icons/fa";
 import "./Header.css";
 
 function Header() {
@@ -12,10 +12,10 @@ function Header() {
   return (
     <header className={isDarkMode ? "dark" : "light"}>
       <h1 className="title">Where in the world?</h1>
-      <div className="mode-toggle" onClick={toggleMode}>
+      <button className="mode-toggle" onClick={toggleMode}>
         {isDarkMode ? <FaSun /> : <FaRegMoon />}
         {isDarkMode ? "Light Mode" : "Dark Mode"}
-      </div>
+      </button>
     </header>
   );
 }
